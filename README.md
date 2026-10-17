@@ -31,7 +31,7 @@ sowie Bewertungen, Nachrichten und Benachrichtigungen.
 | `schema.sql`     | Alle `CREATE TABLE`-Anweisungen mit Primär-/Fremdschlüsseln und Constraints |
 | `data.sql`       | Dummy-Daten (mind. 10 Datensätze je Tabelle)                       |
 | `queries.sql`    | Beispielabfragen zu den Kernfunktionen                             |
-| `tests_v2.sql`   | Aussagekräftige Testfälle: 7 Negativtests + 7 fachliche Anwendungsfälle |
+| `tests.sql`   | Aussagekräftige Testfälle: 7 Negativtests + 7 fachliche Anwendungsfälle |
 
 ---
 
@@ -82,10 +82,10 @@ SELECT count(*) FROM book;                                    -- erwartet: 12
 
 ```bash
 psql -d buchtausch -f queries.sql
-psql -d buchtausch -f tests_v2.sql
+psql -d buchtausch -f tests.sql
 ```
 
-Die Negativtests in `tests_v2.sql` sind in `DO`-Blöcke gekapselt: Sie provozieren
+Die Negativtests in `tests.sql` sind in `DO`-Blöcke gekapselt: Sie provozieren
 absichtlich einen Constraint-Fehler und geben per `NOTICE` aus, ob der jeweilige
 Schutz gegriffen hat (z. B. `T1 OK: unzulässiger Zustand abgewiesen`). Das Skript
 bleibt dadurch als Ganzes lauffähig.
